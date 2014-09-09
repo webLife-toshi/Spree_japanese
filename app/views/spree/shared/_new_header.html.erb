@@ -1,0 +1,54 @@
+<div class="navbar-wrapper">
+  <div class="container">
+
+     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+       <div class="container">
+         <div class="navbaar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            <%= link_to "シアチャル", spree.root_path, :class =>'navbar-brand' %>
+         </div>
+
+         <div class="navbar-collapse collapse">
+           <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+<%= form_tag spree.products_path, :method => :get, :class =>'navbar-form navbar-right' do %>
+  <% cache(cache_key_for_taxons) do %>
+    <%= select_tag :taxon,
+          options_for_select([[Spree.t(:all_departments), '']] +
+                                @taxons.map {|t| [t.name, t.id]},
+                                @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %>
+  <% end %>
+  <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search) %>
+  <%= submit_tag Spree.t(:search), :name => nil %>
+<% end %>
+
+      
+	   <ul class="nav navbar-nav">
+	     <li class="<%= 'active' if current_page?(root_path)%>"><%= link_to "Home", spree.root_path %></li>
+	     <li class="<%= 'active' if current_page?(spree.products_path)%>"><%= link_to "ハラマキ", spree.products_path %></li>
+	     <li class="<%= 'active' if current_page?('/cart')%>">
+<%= link_to Spree.t(:cart), '/cart' %>
+</li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+       </div>
+     </div>
+
+  </div>
+</div>

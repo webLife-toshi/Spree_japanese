@@ -6,8 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require bootstrap
 //= require spree/frontend
 
 //= require_tree .
 //= require spree/frontend/spree_i18n
+
+//= require store/spree_bank_transfer

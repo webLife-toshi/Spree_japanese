@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'money', '6.0.1'
 gem 'spree_i18n', github: 'spree/spree_i18n', branch: '2-2-stable'
+gem 'spree_bootstrap_frontend', github: '200Creative/spree_bootstrap_frontend', branch: '2-2-stable'
+gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'devise'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
+#gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -45,6 +48,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'spree', '2.2.1'
+gem 'spree-bank-transfer','2.2.1', require: 'spree_bank_transfer'
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-2-stable'
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-2-stable'
 

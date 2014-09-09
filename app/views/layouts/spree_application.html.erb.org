@@ -22,7 +22,7 @@
       <% end %>
 
       <div id="progress">
-        <div class="wrapper">test
+        <div class="wrapper">
           <div id="spinner"></div>
           <div class="progress-message"><%= Spree.t(:loading) %>...</div>
         </div>

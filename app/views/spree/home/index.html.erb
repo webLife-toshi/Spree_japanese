@@ -1,8 +1,17 @@
+<% content_for :carousel do %>
+  <%= render :partial => 'spree/shared/carousel' %>
+<% end %>
+
+<%content_for :marketing do %>
+  <%= render :partial => 'spree/shared/marketing' %>
+<% end %>
+
 <% content_for :sidebar do %>
   <div data-hook="homepage_sidebar_navigation">
     <%= render :partial => 'spree/shared/taxonomies' %>
   </div>
 <% end %>
+
 
 <div data-hook="homepage_products">
   <% cache(cache_key_for_products) do %>
